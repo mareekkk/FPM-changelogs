@@ -1,9 +1,0 @@
-remote_theme: pages-themes/leap-day@v0.2.0
-plugins:
-  - jekyll-remote-theme
-
-title: "FalconPM"       # e.g., “Project Changelog”
-description: "Open-source modular automation framework for rAthena. servers."
-# optional:
-# show_downloads: true
-# google_analytics: UA-XXXXXX
