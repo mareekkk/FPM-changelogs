@@ -1,0 +1,24 @@
+# Project Changelog
+
+
+## 2025-09-29 23:09 UTC
+- `f0b9d82` Add workflow to publish commit summaries to gh-pages — Mark
+- `a3a49f6` Healing menus now mirror Lanner’s formatting. — Marek
+- `acbcfcf` Healing menus now mirror Lanner’s formatting — Marek
+- `ef9649b` Healing item submodule + confi menu entry added to Autoheal module. — Marek
+- `f7c220d` Saker cleaned up, removed dirs in rathena core dir except user yml conf. — Marek
+- `74808dc` Saker now works when editing skills on the fly. — Marek
+- `5314405` Saker now fully working. — Marek
+- `239b610` all skills added to db — Marek
+- `449602b` lanner finalized. — Marek
+- `178a855` config working — Marek
+- `5418177` conf window configured. — Marek
+- `9566c7c` Amur module fully working. — Marek
+- `5f2d3a2` Taita fully working — Marek
+- `3a018a6` taita added update to check loot first before attacking — Marek
+- `8c629a7` lanner now fully working. — Marek
+- `7003ed8` lanner+merlin now working. — Marek
+- `fd88acd` lanner update — Marek
+- `3bded04` lanner working, no delay. — Marek
+- `e61afd2` final push before migration — marek
+- `a9dcc17` added all skill related calls in bootstrap — marek
