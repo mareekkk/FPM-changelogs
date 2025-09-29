@@ -2,12 +2,14 @@
 layout: default
 ---
 
-## 2025-09-29 22:45 UTC
+## 2025-09-30
+- `1e5b6f6` Refactor GitHub Actions workflow for commit summaries — Mark
 - `3922fe5` Refactor publish-commit-summaries workflow — Mark
 - `12299fa` Modify commit range to include all commits — Mark
 - `e8bb00a` Modify publish-commit-summaries workflow — Mark
 - `48b85fc` Enhance commit summary workflow for changelog — Mark
 - `f0b9d82` Add workflow to publish commit summaries to gh-pages — Mark
+## 2025-09-29
 - `a3a49f6` Healing menus now mirror Lanner’s formatting. — Marek
 - `acbcfcf` Healing menus now mirror Lanner’s formatting — Marek
 - `ef9649b` Healing item submodule + confi menu entry added to Autoheal module. — Marek
@@ -18,6 +20,7 @@ layout: default
 - `449602b` lanner finalized. — Marek
 - `178a855` config working — Marek
 - `5418177` conf window configured. — Marek
+## 2025-09-28
 - `9566c7c` Amur module fully working. — Marek
 - `5f2d3a2` Taita fully working — Marek
 - `3a018a6` taita added update to check loot first before attacking — Marek
@@ -26,7 +29,9 @@ layout: default
 - `fd88acd` lanner update — Marek
 - `3bded04` lanner working, no delay. — Marek
 - `e61afd2` final push before migration — marek
+## 2025-09-27
 - `a9dcc17` added all skill related calls in bootstrap — marek
+## 2025-09-26
 - `0cc26f5` Hunter system manual test. — marek
 - `e6b6a94` Hunter dummy test — marek
 - `5baa4ff` Hunter system initialized without error / no tasks yet. — marek
@@ -34,6 +39,7 @@ layout: default
 - `f731d29` hunter update — marek
 - `0f55111` Hunter initialized. — marek
 - `08a17c7` init guard added — marek
+## 2025-09-25
 - `2533277` re-entry guard for falconpm.cpp — marek
 - `37c9ef2` init guard — marek
 - `cee1864` one-shot guard / double-checked initialization guard for loader.cpp — marek
@@ -41,6 +47,7 @@ layout: default
 - `0fc8f8d` hunter module update. — marek
 - `30b597a` Hunter module started. — marek
 - `4d510ba` working lanner — marek
+## 2025-09-24
 - `546785b` lanner fully working. — marek
 - `cc906cb` lannel fully loaded — marek
 - `98809d0` lanner updated — marek
@@ -49,9 +56,12 @@ layout: default
 - `df2a1e0` initial addition of menu system. — marek
 - `0fdf1d7` Merline + Peregrine orchestration finalized. — marek
 - `a1fcf17` Merlin working perfectly but does not call Peregrine — marek
+## 2025-09-23
 - `9c22fdc` compiled without errors modified merlin — marek
 - `51f13b7` merlin update — marek
+## 2025-09-24
 - `7be2da3` .gat files added in db — mareekkk
+## 2025-09-23
 - `566b04e` merlin update — marek
 - `713fa6d` merlin updated — marek
 - `d75147a` merlin attk first mob — marek
@@ -68,6 +78,7 @@ layout: default
 - `655b983` basicauto attack working — marek
 - `af253fc` refactored — marek
 - `04cc24f` ctx > g_ctx core change. — marek
+## 2025-09-22
 - `ad7bd66` compiled but segmentation fault crash — marek
 - `297f743` Merlin build suces. — marek
 - `9320416` Merlin AI updated. — marek
@@ -75,8 +86,11 @@ layout: default
 - `2f276ef` bridge compiled to work with Merlin & Taita — marek
 - `09e4ac7` auto attack enabled — marek
 - `b64b07a` compiled but no map data — marek
+## 2025-09-21
 - `23e0ad6` merlin base added — marek
+## 2025-09-22
 - `b0cfdc2` base for merlin AI added — mareekkk
+## 2025-09-21
 - `cab09a9` humanized auto-routing finalized — marek
 - `864aa7e` Add moc_fild07.gat map file — mareekkk
 - `c93af37` PeregrineAI now working.. — marek
@@ -84,9 +98,12 @@ layout: default
 - `f639ed1` smart routing — marek
 - `d73083c` remove portals from AI dir — marek
 - `4bef7ca` peregrine smart routing/pathing initialized — marek
+## 2025-09-20
 - `81d0664` AI system created — marek
 - `793d7e5` Peregrine subsystem is now working — marek
+## 2025-09-21
 - `5c58cdf` added gat file — mareekkk
+## 2025-09-20
 - `6764719` rAthner pathing enabled — marek
 - `b4c49df` jitter & skipped step enabled — marek
 - `0733362` auto walk random xy enabled — marek
@@ -104,6 +121,7 @@ layout: default
 - `b9716c3` FalconPM is now fully hooked up and in production-grade ready. — marek
 - `fbbd7a2` updated autoroute — mareekkk
 - `3ce0a6e` updated loader.cpp and plugins_api.h — mareekkk
+## 2025-09-19
 - `bd9696d` before global declaration — marek
 - `a3f6818` added rAtena's internal APIs and identifiers — marek
 - `7665232` added first in-game test — mareekkk
@@ -116,6 +134,7 @@ layout: default
 - `3e0942b` FalconPM logs in terminal — mareekkk
 - `8b51261` updated main.ccp — mareekkk
 - `eb27ffd` updated CMake — mareekkk
+## 2025-09-18
 - `e218f88` added developing_plugins doc — mareekkk
 - `fbd1df1` updated CMakeList — mareekkk
 - `d3e30cb` updated loader — mareekkk
