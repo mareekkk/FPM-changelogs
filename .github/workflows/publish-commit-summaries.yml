@@ -78,24 +78,38 @@ jobs:
           cat body.txt >> new_commits.md
           echo "no_changes=false" >> $GITHUB_OUTPUT
 
-      - name: Append to public index & update state
+            - name: Append to public index & update state
         if: steps.gen.outputs.no_changes == 'false'
         run: |
-          set -e
-          # SHA of HEAD commit in private repo (the boundary for next time)
           NEW_SHA=$(git rev-parse HEAD)
-          echo "Publishing up to $NEW_SHA"
 
           cd public-site
-          test -f index.md || echo "# Project Changelog" > index.md
-          printf "\n\n" >> index.md
-          cat ../new_commits.md >> index.md
+
+          # Ensure front matter always exists at the top of index.md
+          cat > header.md <<'EOF'
+          ---
+          layout: default
+          title: FalconPM
+          ---
+
+          # FalconPM Changelog
+          EOF
+
+          # If index.md already exists, strip its header (first 5 lines if they start with ---)
+          if [ -f index.md ]; then
+            awk 'NR>5 {print}' index.md > body.md || true
+          else
+            echo "" > body.md
+          fi
+
+          # Rebuild index.md with header + existing body + new commits
+          cat header.md body.md ../new_commits.md > index.md
 
           echo "$NEW_SHA" > last_published_sha.txt
 
           git config user.name "changelog-bot"
           git config user.email "actions@github.com"
           git add index.md last_published_sha.txt
-          git commit -m "chore: append commits up to ${NEW_SHA:0:7}"
+          git commit -m "append commits up to ${NEW_SHA:0:7}"
           git push origin gh-pages
 YAML
