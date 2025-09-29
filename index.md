@@ -1,3 +1,4 @@
+---
 <!-- removed to let the theme handle the title -->
 ## 2025-09-29 21:46 UTC
 - `f0b9d82` Add workflow to publish commit summaries to gh-pages — Mark
