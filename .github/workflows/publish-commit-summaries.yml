@@ -1,0 +1,94 @@
+name: Publish Commit Summaries to FPM-docs /changelog
+
+on:
+  push:
+    branches:
+      - main    # runs when you push to private repo main branch
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export-and-append:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # get full history for first publish
+
+      - name: Clone FPM-docs gh-pages
+        run: |
+          set -e
+          GIT_URL="https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/mareekkk/FPM-docs.git"
+          if git clone --depth 1 --branch gh-pages "$GIT_URL" public-site; then
+            echo "Cloned FPM-docs gh-pages branch."
+          else
+            echo "gh-pages not found, creating it..."
+            git clone "$GIT_URL" public-site
+            cd public-site
+            git checkout --orphan gh-pages
+            mkdir -p changelog
+            echo "# Changelog" > changelog/index.md
+            echo "" > changelog/last_published_sha.txt
+            git add changelog/index.md changelog/last_published_sha.txt
+            git -c user.name="changelog-bot" -c user.email="actions@github.com" commit -m "Initialize gh-pages with /changelog"
+            git push -u origin gh-pages
+          fi
+
+      - name: Read last published SHA
+        id: state
+        run: |
+          if [ -f public-site/changelog/last_published_sha.txt ]; then
+            LAST_SHA=$(cat public-site/changelog/last_published_sha.txt | tr -d '[:space:]')
+          else
+            LAST_SHA=""
+          fi
+          echo "last_sha=$LAST_SHA" >> $GITHUB_OUTPUT
+
+      - name: Generate grouped-by-date commit sections
+        id: gen
+        run: |
+          if [ -n "${{ steps.state.outputs.last_sha }}" ]; then
+            RANGE="${{ steps.state.outputs.last_sha }}..HEAD"
+          else
+            # first publish: include *all* commits
+            RANGE="--reverse HEAD"
+          fi
+
+          git log $RANGE --no-merges --date=short --pretty=format:"%ad|%h|%s" | \
+          awk -F'|' '
+            BEGIN { current_date = "" }
+            {
+              if ($1 != current_date) {
+                current_date = $1
+                print "## " current_date
+              }
+              printf "- `%s` %s\n", $2, $3
+            }
+          ' > new_commits.md || true
+
+          if [ ! -s new_commits.md ]; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Append to changelog/index.md
+        if: steps.gen.outputs.no_changes == 'false'
+        run: |
+          NEW_SHA=$(git rev-parse HEAD)
+          cd public-site
+          mkdir -p changelog
+          test -f changelog/index.md || echo "# Changelog" > changelog/index.md
+          printf "\n\n" >> changelog/index.md
+          cat ../new_commits.md >> changelog/index.md
+          echo "$NEW_SHA" > changelog/last_published_sha.txt
+
+          git config user.name "changelog-bot"
+          git config user.email "actions@github.com"
+          git add changelog/index.md changelog/last_published_sha.txt
+          git commit -m "Append commits up to ${NEW_SHA:0:7}" || true
+          git push origin gh-pages
