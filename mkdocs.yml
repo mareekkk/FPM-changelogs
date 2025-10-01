@@ -16,3 +16,7 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Changelog: changelog.md
