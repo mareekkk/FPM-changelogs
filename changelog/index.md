@@ -196,3 +196,7 @@
 
 ## 2025-10-04
 - `fb5d595` Update project description in README.md
+
+
+## 2025-10-04
+- `45662c0` Update README to change 'framework' to 'platform'
