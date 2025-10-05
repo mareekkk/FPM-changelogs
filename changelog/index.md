@@ -204,3 +204,7 @@
 
 ## 2025-10-06
 - `8aa1c9e` Add Discord notification workflow on push events
+
+
+## 2025-10-06
+- `0df8c5d` Update Discord commit notification to show last 5 commits
