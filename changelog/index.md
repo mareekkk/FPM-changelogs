@@ -232,3 +232,7 @@
 
 ## 2025-10-06
 - `ddcdebc` Removed .gat files from database
+
+
+## 2025-10-06
+- `f2898f5` Improve Discord notification workflow
