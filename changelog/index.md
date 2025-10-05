@@ -208,3 +208,7 @@
 
 ## 2025-10-06
 - `0df8c5d` Update Discord commit notification to show last 5 commits
+
+
+## 2025-10-06
+- `e76c8fd` Refactor Discord commit notification message format
