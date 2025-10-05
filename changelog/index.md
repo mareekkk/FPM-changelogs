@@ -200,3 +200,7 @@
 
 ## 2025-10-04
 - `45662c0` Update README to change 'framework' to 'platform'
+
+
+## 2025-10-06
+- `8aa1c9e` Add Discord notification workflow on push events
