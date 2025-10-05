@@ -212,3 +212,7 @@
 
 ## 2025-10-06
 - `e76c8fd` Refactor Discord commit notification message format
+
+
+## 2025-10-06
+- `36719c7` Enhance Discord commit message with URLs and formatting
